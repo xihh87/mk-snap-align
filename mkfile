@@ -1,3 +1,4 @@
+<snap.mk
 # snap fails if more than one snap process is active
 NPROC=1
 
@@ -10,7 +11,7 @@ results/snap/%.unmapped.sam:	$SNAP_FILES
 	snap-aligner \
 		single \
 		$SNAP_REFERENCEDIR \
-		"$prereq" \
-		$SNAP_OPTS
+		$prereq \
+		$SNAP_OPTS \
 		-o -sam - \
 		> $target
