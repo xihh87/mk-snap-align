@@ -6,6 +6,7 @@ NPROC=1
 SNAP_FILES=`{find -L data/ -name '*.fastq'}
 
 results/snap/%.unmapped.sam:	$SNAP_FILES
+	mkdir -p `dirname $target`
 	snap-aligner \
 		single \
 		$SNAP_REFERENCEDIR \
