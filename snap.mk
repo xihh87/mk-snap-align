@@ -66,8 +66,8 @@ SNAP_REFERENCEDIR='/reference/COMP_SNAP/'
 ##
 SNAP_OPTS='-x -f -h 250 -n 25'
 
-## To filter unmatched regions:
-#SNAP_OPTS=$SNAP_OPTS' -F u'
+## Only output aligned regions:
+SNAP_OPTS=$SNAP_OPTS' -F a'
 
 ## Recommended options by organism:
 ##
