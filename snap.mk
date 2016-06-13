@@ -1,5 +1,5 @@
 ## The directory where the reference is used
-SNAP_REFERENCEDIR='/reference/COMP_SNAP/'
+SNAP_REFERENCEDIR='/reference/FAST_SNAP'
 
 ## Here you should set aditional options for snap
 ##
