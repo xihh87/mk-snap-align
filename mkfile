@@ -9,7 +9,7 @@ align-nt:V:	$SNAP_TARGETS
 # snap can filter a set of files and it's more efficient to align them all on the same run
 # rather than running surpi once for each file
 
-'results/align-nt/(.*)_(.*).sam':R:	'data/\1'	$SNAP_REFERENCEDIR'/\2'
+'results/align-nt/(.*)_(.*).sam':RD:	'data/\1'	$SNAP_REFERENCEDIR'/\2'
 	mkdir -p `dirname $target`
 	SNAP_FILES=`find -L \
 		data/$stem1 \
