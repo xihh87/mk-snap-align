@@ -8,7 +8,7 @@ SNAP_REFERENCEDIR='/reference/hg19/snap_index_hg19_rRNA_mito_Hsapiens_rna/'
 SNAP_OPTS='-x -f -h 250 -n 25'
 
 ## To filter unmatched regions:
-SNAP_OPTS=$SNAP_OPTS' -F u'
+SNAP_OPTS=$SNAP_OPTS' -E u'
 
 ## Recommended options by organism:
 ##
