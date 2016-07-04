@@ -1,12 +1,25 @@
 #!/bin/bash
 # This script outputs the targets needed for nt alignment
 
-snap_dirs() {
+snap_single_dirs() {
 	find -L data/ \
 		-name '*.fastq' \
 		-o -name '*.fastq.gz' \
 		-o -name '*.sam' \
 		-o -name '*.bam' \
+		| grep singletons \
+		| xargs -l dirname \
+		| sort -u \
+		| awk '{print "N\t" $0}'
+}
+
+snap_paired_dirs() {
+	find -L data/ \
+		-name '*.fastq' \
+		-o -name '*.fastq.gz' \
+		-o -name '*.sam' \
+		-o -name '*.bam' \
+		| grep -v singletons \
 		| xargs -l dirname \
 		| sort -u \
 		| awk '{print "N\t" $0}'
@@ -21,6 +34,12 @@ snap_refs() {
 		| awk '{print "N\t" $0}'
 }
 
-join <(snap_dirs) <(snap_refs) \
-| awk '{print $2 "_" $3 ".sam" }' \
+[ -z "$SNAP_REFERENCEDIR" ] && exit 1
+
+join <(snap_paired_dirs) <(snap_refs) \
+| awk '{print $2 "_" $3 ".paired.sam" }' \
+| sed -e 's#data/#results/align-nt/#g'
+
+join <(snap_single_dirs) <(snap_refs) \
+| awk '{print $2 "_" $3 ".single.sam" }' \
 | sed -e 's#data/#results/align-nt/#g'
