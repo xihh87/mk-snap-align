@@ -1,5 +1,5 @@
 ## The directory where the reference is used
-SNAP_REFERENCEDIR='/reference/hg19/snap_index_hg19_rRNA_mito_Hsapiens_rna/'
+SNAP_REFERENCEDIR='../../reference/hg19/snap_index_hg19_rRNA_mito_Hsapiens_rna/'
 
 ## Here you should set aditional options for snap
 ##
