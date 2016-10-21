@@ -14,7 +14,7 @@ SNAP_SINGLE_TARGETS=`{find -L data/ -name '*_singletons.fastq' \
 
 filter-human-out:V: $SNAP_SINGLE_TARGETS $SNAP_PAIRED_TARGETS
 
-results/without-human/%.unmapped_singletons.sam:	data/%_singletons.fastq
+results/without-human/%.unmapped_singletons.sam:D:	data/%_singletons.fastq
 	mkdir -p `dirname $target`
 	snap-aligner \
 		single \
@@ -23,7 +23,7 @@ results/without-human/%.unmapped_singletons.sam:	data/%_singletons.fastq
 		$SNAP_OPTS \
 		-o -sam $target
 
-results/without-human/%.unmapped.sam:	data/%_1.fastq	data/%_2.fastq
+results/without-human/%.unmapped.sam:D:	data/%_1.fastq	data/%_2.fastq
 	mkdir -p `dirname $target`
 	snap-aligner \
 		paired \
