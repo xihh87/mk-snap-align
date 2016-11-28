@@ -1,0 +1,11 @@
+#!/bin/bash
+# This script outputs the targets needed for nt alignment
+
+find -L data/ \
+	-name '*.fastq.gz' \
+| sed \
+	-r \
+	-e 's#^data/#results/align/#g' \
+	-e 's#_R1|_R2##g' \
+	-e 's#\.(sam|fastq|fastq.gz)$#.bam#g' \
+| sort -u
