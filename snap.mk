@@ -1,5 +1,5 @@
 ## The directory where the reference is used
-SNAP_REFERENCEDIR='/reference/COMP_SNAP/'
+SNAP_REFERENCEDIR='../../reference/COMP_SNAP'
 
 ## Here you should set aditional options for snap
 ##
@@ -21,7 +21,7 @@ SNAP_OPTS=$SNAP_OPTS' -d 12'
 #SNAP_OPTS=$SNAP_OPTS' -map'
 ##
 ## - reference not in cache:
-SNAP_OPTS+=' -pre -map'
+SNAP_OPTS=$SNAP_OPTS' -pre -map'
 
 ## By default SNAP uses all available cores.
 ## to use less cores, uncomment the following option,
