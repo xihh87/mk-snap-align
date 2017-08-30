@@ -4,17 +4,8 @@ NPROC=1
 
 # snap can filter a set of files and it's more efficient to align them all on the same run
 # rather than running surpi once for each file
-SNAP_PAIRED_TARGETS=`{find -L data/ -name '*_1.fastq' \
-	| sed -e 's#data/#results/without-human/#g' \
-		-e 's#_1.fastq#.unmapped.sam#g'}
 
-SNAP_SINGLE_TARGETS=`{find -L data/ -name '*_singletons.fastq' \
-	| sed -e 's#data/#results/without-human/#g' \
-		-e 's#_singletons.fastq#.unmapped_singletons.sam#g'}
-
-filter-human-out:V: $SNAP_SINGLE_TARGETS $SNAP_PAIRED_TARGETS
-
-results/without-human/%.unmapped_singletons.sam:D:	data/%_singletons.fastq
+results/without-human/%.unpaired.sam:D:	data/%_R1.unpaired.fastq.gz	data/%_R2.unpaired.fastq.gz
 	mkdir -p `dirname $target`
 	snap-aligner \
 		single \
@@ -23,7 +14,7 @@ results/without-human/%.unmapped_singletons.sam:D:	data/%_singletons.fastq
 		$SNAP_OPTS \
 		-o -sam $target
 
-results/without-human/%.unmapped.sam:D:	data/%_1.fastq	data/%_2.fastq
+results/without-human/%.paired.sam:D:	data/%_R1.paired.fastq.gz	data/%_R2.paired.fastq.gz
 	mkdir -p `dirname $target`
 	snap-aligner \
 		paired \

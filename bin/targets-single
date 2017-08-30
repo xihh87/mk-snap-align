@@ -1,0 +1,5 @@
+#!/bin/sh
+find -L data/ -name '*.unpaired.fastq.gz' \
+| sed -r \
+	-e 's#data/#results/#g' \
+	-e 's#_R1.fastq.gz#.unpaired.sam#g'
