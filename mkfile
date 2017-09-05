@@ -13,7 +13,8 @@ results/%.unpaired.sam:	data/%_R1.unpaired.fastq.gz	data/%_R2.unpaired.fastq.gz
 		$SNAP_REFERENCEDIR \
 		$prereq \
 		$SNAP_OPTS \
-		-o -sam $target
+		-o -sam $target'.build' \
+	&& mv $target'.build' $target
 
 results/%.paired.sam:	data/%_R1.paired.fastq.gz	data/%_R2.paired.fastq.gz
 	set -x
@@ -23,4 +24,5 @@ results/%.paired.sam:	data/%_R1.paired.fastq.gz	data/%_R2.paired.fastq.gz
 		$SNAP_REFERENCEDIR \
 		$prereq \
 		$SNAP_OPTS \
-		-o -sam $target
+		-o -sam $target'.build' \
+	&& mv $target'.build' $target
