@@ -1,5 +1,5 @@
 ## The directory where the reference is used
-SNAP_REFERENCEDIR='../../reference/hg19/snap_index_hg19_rRNA_mito_Hsapiens_rna/'
+SNAP_REFERENCEDIR='../000/results/chiulab.ucsf.edu/SURPI/databases/hg19_rRNA_mito_Hsapiens_rna.snap/'
 
 ## Here you should set aditional options for snap
 ##
@@ -8,7 +8,7 @@ SNAP_REFERENCEDIR='../../reference/hg19/snap_index_hg19_rRNA_mito_Hsapiens_rna/'
 SNAP_OPTS='-x -f -h 250 -n 25'
 
 ## To filter unmatched regions:
-SNAP_OPTS=$SNAP_OPTS' -E u'
+SNAP_OPTS=$SNAP_OPTS' -F u '
 
 ## Recommended options by organism:
 ##
@@ -26,4 +26,4 @@ SNAP_OPTS=$SNAP_OPTS' -map'
 ## By default SNAP uses all available cores.
 ## to use less cores, uncomment the following option,
 ## where 24 is the max number of cores you want to use:
-SNAP_OPTS=$SNAP_OPTS' -t 24'
+SNAP_OPTS=$SNAP_OPTS' -t 32'
