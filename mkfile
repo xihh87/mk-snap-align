@@ -1,10 +1,6 @@
-<snap.mk
+<config.mk
 # snap fails if more than one snap process is active
 NPROC=1
-
-SNAP_TARGETS=`{./snap-nt-queue}
-
-align-nt:V:	$SNAP_TARGETS
 
 # snap can filter a set of files and it's more efficient to align them all on the same run
 # rather than running surpi once for each file
